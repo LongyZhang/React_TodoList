@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  // why do we get index.html in here? 
+  //  We are using the single page application concept, it is faster
   return (
     <div className="App">
       <header className="App-header">
@@ -9,6 +11,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>caonima</p>
         <a
           className="App-link"
           href="https://reactjs.org"
