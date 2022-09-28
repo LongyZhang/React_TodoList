@@ -1,0 +1,11 @@
+import React, { Component } from "react";
+import './index.css'
+
+export default class Welcome extends Component {
+    render() {
+        return (
+            <h3 className="test">Welcome longy's first React </h3>
+        );
+    }
+
+}

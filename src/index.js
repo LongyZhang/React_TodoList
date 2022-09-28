@@ -4,8 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// ReactDOM.render(<App />, document.querySelector("#root"))
 root.render(
+  // React.StrictMode can give you some heads up to check
   <React.StrictMode>
     <App />
   </React.StrictMode>
