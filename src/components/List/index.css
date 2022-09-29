@@ -1,0 +1,11 @@
+.list {
+    list-style: none;
+    text-align: left;
+    display: block;
+    height: 30px;
+
+}
+
+.list:hover {
+    background-color: grey;
+}

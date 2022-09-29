@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 // if you import the jsx and js file into App.js, you dont have to add file type
-import TodoList from './components/TodoList/TodoList';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Item from './components/Item';
+import List from './components/List';
 import './App.css';
 import React, { Component } from 'react';
 // const { Component } = Reac
@@ -10,8 +13,20 @@ import React, { Component } from 'react';
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <TodoList />
+      <div className='container bigbox border'>
+        <div className="row border">
+          <Header />
+        </div>
+        <div className="row border">
+          <Item />
+        </div>
+        <div className="row border">
+          <List />
+        </div>
+        <div className="row border">
+          <Footer />
+        </div>
+
       </div>
     );
   }
