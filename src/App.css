@@ -1,6 +1,37 @@
-.bigbox {
-  text-align: center;
-  margin-top: 100px;
-  width: 500px;
+* {
+  margin: 0;
+  padding: 0;
+}
 
+.bigbox {
+  display: block;
+  height: 200px;
+  width: 400px;
+  margin: 100px auto;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.header {
+  display: block;
+  width: 100%;
+  height: 30px;
+}
+
+.list {
+  list-style: none;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+
+}
+
+.footer {
+  display: block;
+
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
 }
