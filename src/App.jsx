@@ -39,13 +39,45 @@ export default class App extends Component {
   //   const newTodos = todos.filter(item => item.id != id)
   //   console.log(newTodos);
   // }
+  delTodos = (id) => {
+    const { todos } = this.state
+    // todos.filter((todoObj) => {
+    //   if (todoObj.id === id) return
+    // })
+    const newTodos = todos.filter((item => item.id != id))
+    this.setState({ todos: newTodos })
+  }
+
+  // function in here aims to update state 
+  // it allows pass value from child to grandparent
+  // 
+
+  checkUpdate = (id, checked) => {
+    const { todos } = this.state
+    // console.log(id, checked);
+    // console.log(todos.at(id - 1));
+    // const newTodos = todos.filter(item => item.id == id)
+
+
+    // find data and update data
+    const newTodos = todos.map((todoObj) => {
+      if (todoObj.id === id) return { ...todoObj, done: checked }
+      else return todoObj
+    })
+    console.log(newTodos);
+    this.setState({ todos: newTodos })
+    // console.log(newTodos);
+    // todos.at(id - 1).done = checked
+
+
+  }
   render() {
     return (
       <div>
         <div className="bigbox">
           {/* in there the app.jsx, it can pass all different values into different component */}
           <Header passBack={this.addTodo} todos={this.state.todos} />
-          <List todos={this.state.todos} />
+          <List todos={this.state.todos} delTodos={this.delTodos} checkUpdate={this.checkUpdate} />
           <Footer />
         </div>
       </div>

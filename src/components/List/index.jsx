@@ -4,8 +4,16 @@ import Item from '../Item/item'
 
 export default class List extends Component {
 
-    render() {
+    delTodo = (id) => {
         const { todos } = this.props
+        const newTodos = todos.filter(item => item.id != id)
+        this.props.passBack(newTodos)
+        console.log(newTodos);
+    }
+
+
+    render() {
+        const { todos, checkUpdate, delTodos } = this.props
         return (
             // we can retrun anything in return function
             // it is not only for div
@@ -19,7 +27,7 @@ export default class List extends Component {
             // we use ...todo to pass all information from todo to Item
             <ul >
                 {todos.map((todo) => {
-                    return <Item key={todo.id} {...todo} passBack={this.delTodo} />
+                    return <Item key={todo.id} {...todo} passBack={this.delTodo} checkUpdate={checkUpdate} delTodos={delTodos} />
                 })}
             </ul>
 

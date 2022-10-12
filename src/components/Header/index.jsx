@@ -1,15 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component, useId } from 'react'
+import { ReactPropTypes } from 'react';
 
 
 export default class Header extends Component {
 
 
+
     f1 = (event) => {
-        if (event.keyCode == 13 && event.target.value != '') {
+        if (event.keyCode == 13 && event.target.value !== '') {
             // this.setState()
             console.log(event.target.value);
 
-            const todoobj = { id: this.props.todos.length + 1, name: event.target.value, done: false }
+            const todoobj = { id: Date.now(), name: event.target.value, done: false }
             this.props.passBack(todoobj)
             event.target.value = ''
         }
