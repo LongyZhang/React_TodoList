@@ -1,6 +1,12 @@
 ## My first React APP 
 This todoList provides a lot practice for component communication and es6
 
+## Functionalities 
+Add todo list
+Delete todo List
+Tick all todo List
+
+
 ## React APP GIF
 ![](https://github.com/LongyZhang/React_TodoList/blob/main/ezgif.com-gif-maker.gif)
 
