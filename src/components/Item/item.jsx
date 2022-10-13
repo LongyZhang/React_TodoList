@@ -55,7 +55,7 @@ export default class item extends Component {
         const { id, name, done } = this.props
         return (
             <li style={{ backgroundColor: this.state.mouse ? 'skyblue' : 'white' }} className='list' onMouseLeave={this.f1(false)} onMouseEnter={this.f2(true)}>
-                <input type="checkbox" defaultChecked={done} checked={done} onChange={this.f3(id)} />
+                <input type="checkbox" checked={done} onChange={this.f3(id)} />
                 <label > {name}</label>
                 <button onClick={() => { this.del(id) }} style={{ display: this.state.mouse ? 'block' : 'none', float: 'right', marginRight: '5px', borderRadius: '5px', border: 'none', backgroundColor: 'red', lineHeight: '30px' }}>  Delete</button>
             </li>

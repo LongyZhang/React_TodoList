@@ -21,7 +21,7 @@ export default class Footer extends Component {
         return (
             <div className='footer'>
                 <input type="checkbox" onChange={this.updateAll()} checked={this.ticked() === todos.length ? true : false} />
-                <span > {this.ticked()}completed /{todos.length} All</span>
+                <span > {this.ticked()} completed / {todos.length} All</span>
             </div>
         )
     }
