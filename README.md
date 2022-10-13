@@ -2,8 +2,8 @@
 This todoList provides a lot practice for component communication and es6
 
 ## Functionalities 
-Add todo list
-Delete todo List
+Add todo list <br/>
+Delete todo List <br/>
 Tick all todo List
 
 
