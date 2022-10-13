@@ -20,69 +20,52 @@ export default class App extends Component {
     ]
   }
 
-  // create a function to pass value from child component to parent component
-  // it will share value straightly away
-
-
-  // addTodo is meant to add todo, received value is todo object
   addTodo = (obj) => {
-    // console.log('app', obj);
     const { todos } = this.state
     const newTodos = [...todos, obj]
-    // different way to construct new array
-    // const newTodos = [obj, ...todos] 
-
     this.setState({ todos: newTodos })
+
   }
-  // delTodo = (id) => {
-  //   const { todos } = this.state
-  //   const newTodos = todos.filter(item => item.id != id)
-  //   console.log(newTodos);
-  // }
-  delTodos = (id) => {
+  updateTick = (id, tick) => {
+    console.log('app', id, tick);
     const { todos } = this.state
-    // todos.filter((todoObj) => {
-    //   if (todoObj.id === id) return
-    // })
-    const newTodos = todos.filter((item => item.id != id))
-    this.setState({ todos: newTodos })
-  }
 
-  // function in here aims to update state 
-  // it allows pass value from child to grandparent
-  // 
-
-  checkUpdate = (id, checked) => {
-    const { todos } = this.state
-    // console.log(id, checked);
-    // console.log(todos.at(id - 1));
-    // const newTodos = todos.filter(item => item.id == id)
-
-
-    // find data and update data
-    const newTodos = todos.map((todoObj) => {
-      if (todoObj.id === id) return { ...todoObj, done: checked }
-      else return todoObj
+    const newTodo = todos.map((todo) => {
+      if (todo.id === id) return { ...todo, done: tick }
+      else return todo
     })
-    console.log(newTodos);
+
+    this.setState({ todos: newTodo })
+  }
+
+  delTodo = (id) => {
+    const { todos } = this.state
+    const newTodos = todos.filter((todo) => {
+      if (todo.id !== id) return todo
+    })
     this.setState({ todos: newTodos })
-    // console.log(newTodos);
-    // todos.at(id - 1).done = checked
 
+  }
 
+  // here, we are mapping the data from object
+  updateAll = (tick) => {
+    const { todos } = this.state
+    const newTodo = todos.map((todo) => {
+      return { ...todo, done: tick }
+    })
+    this.setState({ todos: newTodo })
   }
   render() {
     return (
-      <div>
-        <div className="bigbox">
-          {/* in there the app.jsx, it can pass all different values into different component */}
-          <Header passBack={this.addTodo} todos={this.state.todos} />
-          <List todos={this.state.todos} delTodos={this.delTodos} checkUpdate={this.checkUpdate} />
-          <Footer />
-        </div>
+      <div className='bigbox'>
+        <Header todos={this.state.todos} passValue={this.addTodo} />
+        <List todos={this.state.todos} passTick={this.updateTick} passDel={this.delTodo} />
+        <Footer todos={this.state.todos} passBack={this.updateAll} />
       </div>
+
     );
   }
+
 }
 
 // export default App;
